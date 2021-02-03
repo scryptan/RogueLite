@@ -10,12 +10,14 @@ namespace RogueLike.Player
         private IMover _playerMover;
         private IAttack _playerAttack;
         private Camera _playerCamera;
-        private Plane _groundPlane =  new Plane(Vector3.up, Vector3.zero);
+        private Plane _groundPlane;
+
         private void OnEnable()
         {
             _playerMover = GetComponent<IMover>();
             _playerAttack = GetComponent<IAttack>();
             _playerCamera = Camera.main;
+            _groundPlane = new Plane(Vector3.up, transform.position);
         }
 
         private void Update()
